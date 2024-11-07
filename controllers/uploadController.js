@@ -25,6 +25,8 @@ const fs = require('fs');
       __dirname,
       '../public/uploads/' + `${productImage.name}`
     );
+    console.log(imagePath);
+    
     await productImage.mv(imagePath);
     return res
       .status(StatusCodes.OK)
