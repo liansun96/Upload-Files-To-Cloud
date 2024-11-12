@@ -9,13 +9,13 @@ const fs = require('fs');
     if (!req.files) {
       throw new CustomError.BadRequestError('No File Uploaded');
     }
-    console.log(req.files);
+    // console.log(req.files);
     
     const productImage = req.files.image;
     if (!productImage.mimetype.startsWith('image')) {
       throw new CustomError.BadRequestError('Please Upload Image');
     }
-    console.log(productImage, productImage.mimetype);
+    // console.log(productImage, productImage.mimetype);
     
     const maxSize = 1024 * 1024;
     if (productImage.size > maxSize) {
@@ -25,7 +25,7 @@ const fs = require('fs');
       __dirname,
       '../public/uploads/' + `${productImage.name}`
     );
-    console.log(imagePath);
+    // console.log(imagePath);
     
     await productImage.mv(imagePath);
     return res
