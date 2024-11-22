@@ -9,7 +9,7 @@ const fs = require('fs');
     if (!req.files) {
       throw new CustomError.BadRequestError('No File Uploaded');
     }
-    // console.log(req.files);
+    // console.log(req.files); 
     
     const productImage = req.files.image;
     if (!productImage.mimetype.startsWith('image')) {
